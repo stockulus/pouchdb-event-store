@@ -1,6 +1,6 @@
 # event store on top of pouchdb
 
-generates an sequence id, based on a file
+mimimal eventStore on top of pouchdb
 
 ## install
 npm i pouchdb-event-store
@@ -10,7 +10,7 @@ npm test
 
 ```js
 const pouchdb = require('pouchdb')
-const eventStoreFactory = require('pouchdb-event-store')
+const pouchdbEventStore = require('pouchdb-event-store')
 
 let lastId = 0
 const options = {
@@ -30,16 +30,15 @@ const options = {
   ]
 }
 
-eventStoreFactory(options)
-  .create()
+const eventStoreFactory = pouchdbEventStore(options)
+eventStoreFactory.create()
   .then((eventStore) => eventStore.add({type: 'CREATE'}, 123))
   .then((result) => {
     console.log(result)
   })
   .catch((error) => console.error(error))
 
-eventStoreFactory(options)
-  .get('1')
+eventStoreFactory.get('1')
   .then((eventStore) => {
     console.log(eventStore.getEvents())
   })
