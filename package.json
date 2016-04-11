@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-event-store",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
