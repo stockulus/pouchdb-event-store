@@ -12,7 +12,9 @@ const leftPad = require('left-pad')
  * @param {object[]} options.viewModels - Array of viewModels {pouchdb, reducer}
  */
 module.exports = function eventStoreFactory (options) {
-  const {pouchdb, idGenerator, viewModels} = options
+  const pouchdb = options.pouchdb
+  const idGenerator = options.idGenerator
+  const viewModels = options.viewModels || []
 
   const eventStore = (id, events) => {
     return {
@@ -44,7 +46,7 @@ module.exports = function eventStoreFactory (options) {
   const updateViewModel = (db, reducer, event) => {
     if (event.index === 0) {
       const newState = reducer({
-        id: event.resourceId,
+        _id: event.resourceId,
         createdAt: event.createdAt,
         createdBy: event.user
       }, event)
@@ -96,7 +98,7 @@ module.exports = function eventStoreFactory (options) {
     create () {
       return new Promise((resolve, reject) => {
         idGenerator.next()
-          .then((id) => resolve(eventStore(id, [])))
+          .then((id) => resolve(eventStore(id.toString(), [])))
           .catch(reject)
       })
     }
