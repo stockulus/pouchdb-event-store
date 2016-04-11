@@ -66,7 +66,7 @@ module.exports = function eventStoreFactory (options) {
     live: true,
     include_docs: true
   }).on('change', (change) => {
-    viewModels.forEach(viewModel => {
+    viewModels.forEach((viewModel) => {
       updateViewModel(viewModel.pouchdb, viewModel.reducer, change.doc)
     })
   })
