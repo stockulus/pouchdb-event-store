@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "faucet": "0.0.1",
-    "pouchdb": "^5.3.1",
+    "pouchdb": "5.3.1",
     "standard": "6.0.8",
     "tape": "4.5.1"
   },
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/stockulus/pouchdb-event-store#readme",
   "dependencies": {
-    "left-pad": "^1.0.1",
-    "lodash": "^4.9.0"
+    "left-pad": "1.0.1",
+    "lodash": "4.9.0"
   }
 }
