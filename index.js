@@ -37,7 +37,8 @@ module.exports = function eventStoreFactory (options) {
               events.push(event)
               resolve({
                 ok: true,
-                id: id
+                id: id,
+                index: event.index
               })
             })
             .catch(reject)
