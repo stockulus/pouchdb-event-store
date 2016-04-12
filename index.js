@@ -2,7 +2,7 @@
 
 const _ = require('lodash')
 const leftPad = require('left-pad')
-
+const EventEmitter = require('events')
 /**
  * Factory function for the event store
  * @param {object} options
@@ -15,6 +15,8 @@ module.exports = function eventStoreFactory (options) {
   const pouchdb = options.pouchdb
   const idGenerator = options.idGenerator
   const viewModels = options.viewModels || []
+
+  const eventEmitter = new EventEmitter()
 
   const eventStore = (id, events) => {
     return {
@@ -52,14 +54,14 @@ module.exports = function eventStoreFactory (options) {
       }, event)
 
       db.post(newState)
-        .then((result) => console.log('Viewmodel created', result))
-        .catch((error) => console.error('Viewmodel created', error))
+        .then((result) => eventEmitter.emit('created', result))
+        .catch((error) => eventEmitter.emit('error', error))
     } else {
       db.get(event.resourceId)
         .then((state) => reducer(state, event))
         .then((newState) => db.put(newState))
-        .then((result) => console.log('Viewmodel updated', result))
-        .catch((error) => console.error('Viewmodel updated', error))
+        .then((result) => eventEmitter.emit('updated', result))
+        .catch((error) => eventEmitter.emit('error', error))
     }
   }
 
@@ -73,7 +75,7 @@ module.exports = function eventStoreFactory (options) {
     })
   })
 
-  return {
+  return Object.assign({}, eventEmitter, {
     get (id) {
       return new Promise((resolve, reject) => {
         pouchdb.allDocs({
@@ -102,5 +104,5 @@ module.exports = function eventStoreFactory (options) {
           .catch(reject)
       })
     }
-  }
+  })
 }
