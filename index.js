@@ -3,6 +3,7 @@
 const _ = require('lodash')
 const leftPad = require('left-pad')
 const EventEmitter = require('events')
+
 /**
  * Factory function for the event store
  * @param {object} options
@@ -75,7 +76,10 @@ module.exports = function eventStoreFactory (options) {
     })
   })
 
-  return Object.assign({}, eventEmitter, {
+  return {
+    on (eventType, eventFunc) {
+      return eventEmitter.on(eventType, eventFunc)
+    },
     get (id) {
       return new Promise((resolve, reject) => {
         pouchdb.allDocs({
@@ -104,5 +108,5 @@ module.exports = function eventStoreFactory (options) {
           .catch(reject)
       })
     }
-  })
+  }
 }
