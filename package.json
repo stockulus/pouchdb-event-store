@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-event-store",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/stockulus/pouchdb-event-store#readme",
   "dependencies": {
-    "left-pad": "1.0.1",
+    "left-pad": "1.0.2",
     "lodash": "4.11.1"
   }
 }
