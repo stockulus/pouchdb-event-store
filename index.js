@@ -3,6 +3,7 @@
 const _ = require('lodash')
 const leftPad = require('left-pad')
 const EventEmitter = require('events')
+const polygoat = require('polygoat')
 
 /**
  * Factory function for the event store
@@ -24,25 +25,31 @@ module.exports = function eventStoreFactory (options) {
       getId () { return id },
       getEvents () { return events },
       getETag () { return id + '-' + events.length },
-      add (event, user) {
+      /**
+      * @param {object} event
+      * @param {object} user
+      * @param {function} [callback]
+      * @return {Promise} if uses without callback
+      */
+      add (event, user, callback) {
         event._id = id + '-' + leftPad(events.length, 8, 0)
         event.resourceId = id
         event.index = events.length
         event.createdAt = new Date()
         event.user = user
 
-        return new Promise((resolve, reject) => {
+        return polygoat((done) => {
           pouchdb.post(event)
             .then((result) => {
               events.push(event)
-              resolve({
+              done(null, {
                 ok: true,
                 id: id,
                 index: event.index
               })
             })
-            .catch(reject)
-        })
+            .catch(done)
+        }, callback)
       }
     }
   }
@@ -78,18 +85,28 @@ module.exports = function eventStoreFactory (options) {
   })
 
   return {
+    /**
+    * @param {string} eventType
+    * @param {function} eventFunc
+    */
     on (eventType, eventFunc) {
       return eventEmitter.on(eventType, eventFunc)
     },
-    get (id) {
-      return new Promise((resolve, reject) => {
+    /**
+    * @param {string} id
+    * @param {function} [callback]
+    * @return {Promise} if uses without callback
+    */
+    get (id, callback) {
+      return polygoat((done) => {
         pouchdb.allDocs({
           startkey: id + '-',
           endkey: id + '-99999999',
-          include_docs: true})
-          .then((result) => {
+          include_docs: true},
+          (error, result) => {
+            if (error) return done(error)
             if (result.rows.length === 0) {
-              return reject({
+              return done({
                 status: 404,
                 name: 'not_found',
                 message: 'missing',
@@ -97,17 +114,20 @@ module.exports = function eventStoreFactory (options) {
                 reason: 'missing'
               })
             }
-            resolve(eventStore(id, _.map(result.rows, (row) => row.doc)))
+            done(null, eventStore(id, _.map(result.rows, (row) => row.doc)))
           })
-          .catch(reject)
-      })
+      }, callback)
     },
-    create () {
-      return new Promise((resolve, reject) => {
+    /**
+    * @param {function} [callback]
+    * @return {Promise} if uses without callback
+    */
+    create (callback) {
+      return polygoat((done) => {
         idGenerator.next()
-          .then((id) => resolve(eventStore(id.toString(), [])))
-          .catch(reject)
-      })
+          .then((id) => done(null, eventStore(id.toString(), [])))
+          .catch(done)
+      }, callback)
     }
   }
 }

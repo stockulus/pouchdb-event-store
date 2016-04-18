@@ -44,6 +44,24 @@ eventStoreFactory.get('1')
   })
   .catch((error) => console.error(error))
 
+// or callback style
+eventStoreFactory(options).create((error, eventStore) => {
+  if (error) return console.error(error)
+  eventStore.add({type: 'CREATE'}, 123, (error, result) => {
+    if (error) return console.error(error)
+    console.log(result)
+  })
+})
+
+eventStoreFactory.get('2', (error, eventStore) => {
+  if (error) return console.error(error)
+  console.log(eventStore.getEvents())
+})
+
 ```
+
+## Contact
+Feedback welcome:
+Twitter: @stockulus
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)

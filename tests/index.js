@@ -11,11 +11,13 @@ const eventStoreFactory = require('../index')
 del.sync(['/tmp/eventStore'], {force: true})
 fs.mkdirSync('/tmp/eventStore')
 
+let lastId = 0
+
 const viewModelDb = pouchdb('viewModel')
 const options = {
   pouchdb: pouchdb('events'),
   idGenerator: {
-    next () { return new Promise((resolve, reject) => { resolve(1) }) }
+    next () { return new Promise((resolve, reject) => { resolve(++lastId) }) }
   },
   viewModels: [
     {
@@ -39,6 +41,17 @@ test('create new', (assert) => {
     .catch((error) => assert.error(error))
 })
 
+test('create new callback style', (assert) => {
+  eventStoreFactory(options).create((error, eventStore) => {
+    if (error) return assert.error(error)
+    eventStore.add({type: 'CREATE'}, 123, (error, result) => {
+      if (error) return assert.error(error)
+      assert.equal(result.id, '2')
+      assert.end()
+    })
+  })
+})
+
 test('read eventstore', (assert) => {
   eventStoreFactory(options).get('1')
     .then((eventStore) => {
@@ -47,6 +60,16 @@ test('read eventstore', (assert) => {
       assert.end()
     })
     .catch((error) => assert.error(error))
+})
+
+test('read eventstore callback style', (assert) => {
+  eventStoreFactory(options).get('2', (error, eventStore) => {
+    if (error) return assert.error(error)
+
+    assert.equal(eventStore.getId(), '2')
+    assert.equal(eventStore.getEvents().length, 1)
+    assert.end()
+  })
 })
 
 test('read viewModel', (assert) => {
