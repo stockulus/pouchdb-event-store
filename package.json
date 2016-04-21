@@ -13,7 +13,7 @@
   "devDependencies": {
     "del": "2.2.0",
     "faucet": "0.0.1",
-    "pouchdb": "5.3.1",
+    "pouchdb": "5.3.2",
     "standard": "6.0.8",
     "tape": "4.5.1"
   },
