@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/stockulus/pouchdb-event-store#readme",
   "dependencies": {
-    "left-pad": "1.0.2",
+    "left-pad": "1.1.0",
     "lodash": "4.11.1",
     "polygoat": "1.1.4"
   }
