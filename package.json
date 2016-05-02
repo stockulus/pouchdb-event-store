@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-event-store",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stockulus/pouchdb-event-store.git"
+  },
+  "dependencies": {
+    "left-pad": "1.1.0",
+    "lodash": "4.11.2",
+    "polygoat": "1.1.4"
   },
   "devDependencies": {
     "del": "2.2.0",
@@ -29,10 +34,5 @@
   "bugs": {
     "url": "https://github.com/stockulus/pouchdb-event-store/issues"
   },
-  "homepage": "https://github.com/stockulus/pouchdb-event-store#readme",
-  "dependencies": {
-    "left-pad": "1.1.0",
-    "lodash": "4.11.1",
-    "polygoat": "1.1.4"
-  }
+  "homepage": "https://github.com/stockulus/pouchdb-event-store#readme"
 }
