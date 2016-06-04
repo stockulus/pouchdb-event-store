@@ -19,7 +19,7 @@
     "del": "2.2.0",
     "faucet": "0.0.1",
     "pouchdb": "5.3.2",
-    "standard": "7.1.1",
+    "standard": "7.1.2",
     "tape": "4.5.1"
   },
   "peerDependencies": {
