@@ -1,12 +1,12 @@
-# event store on top of pouchdb
-
+pouchdb-event-store
+======
 mimimal eventStore on top of pouchdb
 
-## install
-npm i pouchdb-event-store
+### Usage
 
-## test
-npm test
+```bash
+npm i pouchdb-event-store
+```
 
 ```js
 const PouchDB = require('pouchdb') // or pouchdb-node / pouchdb-browser / pouchdb-react-native
@@ -60,8 +60,8 @@ eventStoreFactory.get('2', (error, eventStore) => {
 
 ```
 
-## Contact
+---
 Feedback welcome:
-Twitter: @stockulus
+Twitter: [@stockulus](https://twitter.com/stockulus)
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
