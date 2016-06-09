@@ -9,12 +9,12 @@ npm i pouchdb-event-store
 npm test
 
 ```js
-const pouchdb = require('pouchdb')
+const PouchDB = require('pouchdb') // or pouchdb-node / pouchdb-browser / pouchdb-react-native
 const pouchdbEventStore = require('pouchdb-event-store')
 
 let lastId = 0
 const options = {
-  pouchdb: pouchdb('events'),
+  pouchdb: new PouchDB('events'),
   idGenerator: {
     next () { return new Promise((resolve, reject) => { resolve(lastId++) }) }
   },

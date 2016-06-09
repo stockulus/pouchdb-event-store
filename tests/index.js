@@ -3,7 +3,7 @@
 const test = require('tape')
 const fs = require('fs')
 const del = require('del')
-const pouchdb = require('pouchdb')
+const pouchdb = require('pouchdb-node')
   .defaults({prefix: '/tmp/eventStore/'})
 
 const eventStoreFactory = require('../index')
