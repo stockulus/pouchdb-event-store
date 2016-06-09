@@ -20,7 +20,7 @@ const options = {
   },
   viewModels: [
     {
-      pouchdb: pouchdb('viewModel'),
+      pouchdb: new PouchDB('viewModel'),
       reducer (state, event) {
         if (!state.items) state.items = []
         state.items.push(event)
