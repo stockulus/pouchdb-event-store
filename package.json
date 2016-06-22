@@ -16,11 +16,11 @@
     "polygoat": "1.1.4"
   },
   "devDependencies": {
-    "del": "2.2.0",
+    "del": "2.2.1",
     "faucet": "0.0.1",
     "pouchdb-node": "5.4.4",
     "standard": "7.1.2",
-    "tape": "4.5.1"
+    "tape": "4.6.0"
   },
   "peerDependencies": {
     "pouchdb-core": "^5.4.0"
