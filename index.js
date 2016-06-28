@@ -118,6 +118,7 @@ module.exports = function eventStoreFactory (options) {
           })
       }, callback)
     },
+
     /**
     * @param {function} [callback]
     * @return {Promise} if uses without callback
@@ -128,6 +129,17 @@ module.exports = function eventStoreFactory (options) {
           .then((id) => done(null, eventStore(id.toString(), [])))
           .catch(done)
       }, callback)
+    },
+
+    /**
+    * @param {string} id
+    * @param {function} [callback]
+    * @return {Promise} if uses without callback
+    */
+    createWithId (id, callback) {
+      return polygoat((done) => {
+        done(null, eventStore(id.toString(), []))
+      })
     }
   }
 }
