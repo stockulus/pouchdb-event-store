@@ -19,7 +19,7 @@
   "devDependencies": {
     "del": "2.2.1",
     "faucet": "0.0.1",
-    "pouchdb-node": "5.4.4",
+    "pouchdb-node": "5.4.5",
     "standard": "7.1.2",
     "tape": "4.6.0"
   },
