@@ -30,7 +30,7 @@
     "pouchdb",
     "eventstore"
   ],
-  "author": "stockulus",
+  "author": "Christoph Stock (@stockulus)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stockulus/pouchdb-event-store/issues"
