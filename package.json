@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-event-store",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "left-pad": "1.1.1",
-    "lodash": "4.13.1",
     "polygoat": "1.1.4"
   },
   "devDependencies": {

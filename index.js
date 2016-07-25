@@ -1,6 +1,5 @@
 'use strict'
 
-const _ = require('lodash')
 const leftPad = require('left-pad')
 const EventEmitter = require('events')
 const polygoat = require('polygoat')
@@ -114,7 +113,7 @@ module.exports = function eventStoreFactory (options) {
                 reason: 'missing'
               })
             }
-            done(null, eventStore(id, _.map(result.rows, (row) => row.doc)))
+            done(null, eventStore(id, result.rows.map(row => row.doc)))
           })
       }, callback)
     },
