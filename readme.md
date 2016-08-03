@@ -63,5 +63,4 @@ eventStoreFactory.get('2', (error, eventStore) => {
 ```
 
 ---
-Feedback welcome:
-Twitter: [@stockulus](https://twitter.com/stockulus)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/stockulus) [![npm](https://img.shields.io/npm/l/pouchdb-event-store.svg?maxAge=2592000)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/stockulus/pouchdb-event-store.svg?style=social&label=Star)](https://github.com/stockulus/pouchdb-event-store)
