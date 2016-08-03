@@ -64,4 +64,6 @@ eventStoreFactory.get('2', (error, eventStore) => {
 Feedback welcome:
 Twitter: [@stockulus](https://twitter.com/stockulus)
 
+[![bitHound Overall Score](https://www.bithound.io/github/stockulus/pouchdb-event-store/badges/score.svg)](https://www.bithound.io/github/stockulus/pouchdb-event-store)
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
