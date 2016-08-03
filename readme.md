@@ -2,7 +2,7 @@ pouchdb-event-store
 ======
 mimimal eventStore on top of pouchdb
 
-[![bitHound Overall Score](https://www.bithound.io/github/stockulus/pouchdb-event-store/badges/score.svg)](https://www.bithound.io/github/stockulus/pouchdb-event-store) [![npm Package](https://img.shields.io/npm/dm/pouchdb-event-store.svg)](https://www.npmjs.com/package/pouchdb-event-store) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![bitHound Overall Score](https://www.bithound.io/github/stockulus/pouchdb-event-store/badges/score.svg)](https://www.bithound.io/github/stockulus/pouchdb-event-store) [![npm Package](https://img.shields.io/npm/dm/pouchdb-event-store.svg)](https://www.npmjs.com/package/pouchdb-event-store) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/l/pouchdb-event-store.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
 
 ### Usage
 
@@ -63,4 +63,4 @@ eventStoreFactory.get('2', (error, eventStore) => {
 ```
 
 ---
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/stockulus) [![npm](https://img.shields.io/npm/l/pouchdb-event-store.svg?maxAge=2592000)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/stockulus/pouchdb-event-store.svg?style=social&label=Star)](https://github.com/stockulus/pouchdb-event-store)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000)](https://twitter.com/stockulus) [![GitHub stars](https://img.shields.io/github/stars/stockulus/pouchdb-event-store.svg?style=social&label=Star)](https://github.com/stockulus/pouchdb-event-store)
