@@ -58,7 +58,9 @@ module.exports = function eventStoreFactory (options) {
       const newState = reducer({
         _id: event.resourceId,
         createdAt: event.createdAt,
-        createdBy: event.user
+        createdBy: event.user,
+        lastModifiedAt: event.createdAt,
+        lastModifiedBy: event.user
       }, event)
 
       db.post(newState)
@@ -67,7 +69,12 @@ module.exports = function eventStoreFactory (options) {
     } else {
       db.get(event.resourceId)
         .then((state) => reducer(state, event))
-        .then((newState) => db.put(newState))
+        .then((newState) => {
+          newState.lastModifiedAt = event.createdAt
+          newState.lastModifiedBy = event.user
+
+          return db.put(newState)
+        })
         .then((result) => eventEmitter.emit('updated', result))
         .catch((error) => eventEmitter.emit('error', error))
     }
