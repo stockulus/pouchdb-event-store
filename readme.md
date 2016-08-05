@@ -2,7 +2,7 @@ pouchdb-event-store
 ======
 mimimal eventStore on top of pouchdb
 
-[![bitHound Overall Score](https://www.bithound.io/github/stockulus/pouchdb-event-store/badges/score.svg)](https://www.bithound.io/github/stockulus/pouchdb-event-store) [![npm Package](https://img.shields.io/npm/dm/pouchdb-event-store.svg)](https://www.npmjs.com/package/pouchdb-event-store) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![npm](https://img.shields.io/npm/l/pouchdb-event-store.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
+[![bitHound Overall Score](https://www.bithound.io/github/stockulus/pouchdb-event-store/badges/score.svg)](https://www.bithound.io/github/stockulus/pouchdb-event-store) [![npm Package](https://img.shields.io/npm/dm/pouchdb-event-store.svg)](https://www.npmjs.com/package/pouchdb-event-store) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![license](https://img.shields.io/npm/l/pouchdb-event-store.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
 
 ### Usage
 
