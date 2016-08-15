@@ -16,7 +16,7 @@
     "polygoat": "1.1.4"
   },
   "devDependencies": {
-    "del": "2.2.1",
+    "del": "2.2.2",
     "faucet": "0.0.1",
     "pouchdb-node": "5.4.5",
     "standard": "7.1.2",
