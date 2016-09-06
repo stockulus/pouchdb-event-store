@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-event-store",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "tape": "4.6.0"
   },
   "peerDependencies": {
-    "pouchdb-core": "^5.4.0"
+    "pouchdb-core": ">=5.4.0"
   },
   "keywords": [
     "pouchdb",
