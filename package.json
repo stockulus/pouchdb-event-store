@@ -1,11 +1,12 @@
 {
   "name": "pouchdb-event-store",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "event store on top of pouchdb",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/standard/bin/cmd.js && ./node_modules/tape/bin/tape ./tests/**/*.js | ./node_modules/faucet/bin/cmd.js",
-    "updtr": "updtr --save-exact"
+    "updtr": "updtr --save-exact",
+    "clean": "rm -rf node_modules"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,6 @@
     "pouchdb-node": "6.0.5",
     "standard": "8.1.0",
     "tape": "4.6.0"
-  },
-  "peerDependencies": {
-    "pouchdb-core": ">=5.4.0"
   },
   "keywords": [
     "pouchdb",
