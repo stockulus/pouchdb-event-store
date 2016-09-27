@@ -20,7 +20,7 @@
     "del": "2.2.2",
     "faucet": "0.0.1",
     "pouchdb-node": "6.0.5",
-    "standard": "8.1.0",
+    "standard": "8.2.0",
     "tape": "4.6.0"
   },
   "keywords": [
