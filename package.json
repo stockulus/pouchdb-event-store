@@ -21,7 +21,7 @@
     "faucet": "0.0.1",
     "pouchdb-node": "6.2.0",
     "standard": "10.0.2",
-    "tape": "4.6.3"
+    "tape": "4.7.0"
   },
   "keywords": [
     "pouchdb",
