@@ -19,9 +19,9 @@
   "devDependencies": {
     "del": "3.0.0",
     "faucet": "0.0.1",
-    "pouchdb-node": "6.2.0",
-    "standard": "10.0.2",
-    "tape": "4.7.0"
+    "pouchdb-node": "6.3.4",
+    "standard": "10.0.3",
+    "tape": "4.8.0"
   },
   "keywords": [
     "pouchdb",
